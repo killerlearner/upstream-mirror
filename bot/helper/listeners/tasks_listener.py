@@ -404,6 +404,7 @@ class MirrorLeechListener:
         lmsg += f'\n<b>├ cc</b>: <i>{self.tag}</i>'
         _msg = '' if rclonePath == '' else f'\n\n<code>Path            </code>: {rclonePath}'
         msg_ = '\n\n<b><i>Links has been sent in your DM.</i></b>'
+        reply_message = await sendMessage(gmsg, msg,  photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
         buttons = ButtonMaker()
         if self.isLeech:
             msg += f'\n└ Total Files</code>: {folders}\n'
@@ -421,39 +422,39 @@ class MirrorLeechListener:
                         fmsg += f"{index}. <a href='{link}'>{name}</a>\n"
                         if len(fmsg.encode() + msg.encode()) > 4000:
                             if self.logMessage:
-                                await sendMessage(self.logMessage, lmsg + msg + fmsg, photo='IMAGES')
-                            await sendMessage(self.message, lmsg + msg + fmsg, photo='IMAGES')
+                                await sendMessage(self.logMessage, lmsg + msg + fmsg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
+                            await sendMessage(self.message, lmsg + msg + fmsg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
                             await sleep(1)
                             fmsg = '\n'
                     if fmsg != '\n':
                         if self.logMessage:
-                            await sendMessage(self.logMessage, lmsg + msg + fmsg, photo='IMAGES')
-                        await sendMessage(self.message, lmsg + msg + fmsg, photo='IMAGES')
+                            await sendMessage(self.logMessage, lmsg + msg + fmsg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
+                        await sendMessage(self.message, lmsg + msg + fmsg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
             else:
                 if not files:
-                    await sendMessage(self.message, gmsg + msg + msg_, photo='IMAGES')
+                    await sendMessage(self.message, gmsg + msg + msg_, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
                     if self.logMessage:
-                        await sendMessage(self.logMessage, lmsg + msg, photo='IMAGES')
+                        await sendMessage(self.logMessage, lmsg + msg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
                 elif self.dmMessage and not config_dict['DUMP_CHAT_ID']:
-                    await sendMessage(self.dmMessage, lmsg + msg, photo='IMAGES')
-                    await sendMessage(self.message, gmsg + msg + msg_, photo='IMAGES')
+                    await sendMessage(self.dmMessage, lmsg + msg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
+                    await sendMessage(self.message, gmsg + msg + msg_, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
                     if self.logMessage:
-                        await sendMessage(self.logMessage, lmsg + msg, photo='IMAGES')
+                        await sendMessage(self.logMessage, lmsg + msg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
                 else:
                     fmsg = '\n'
                     for index, (link, name) in enumerate(files.items(), start=1):
                         fmsg += f"{index}. <a href='{link}'>{name}</a>\n"
                         if len(fmsg.encode() + msg.encode()) > 4000:
                             if self.logMessage:
-                                await sendMessage(self.logMessage, lmsg + msg + fmsg, photo='IMAGES')
-                            await sendMessage(self.dmMessage, gmsg + msg + fmsg, photo='IMAGES')
+                                await sendMessage(self.logMessage, lmsg + msg + fmsg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
+                            await sendMessage(self.dmMessage, gmsg + msg + fmsg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
                             await sleep(1)
                             fmsg = '\n'
                     if fmsg != '\n':
                         if self.logMessage:
-                            await sendMessage(self.logMessage, lmsg + msg + fmsg, photo='IMAGES')
-                        await sendMessage(self.message, gmsg + msg + msg_, photo='IMAGES')
-                        await sendMessage(self.dmMessage, gmsg + msg + fmsg, photo='IMAGES')
+                            await sendMessage(self.logMessage, lmsg + msg + fmsg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
+                        await sendMessage(self.message, gmsg + msg + msg_, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
+                        await sendMessage(self.dmMessage, gmsg + msg + fmsg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
             if self.seed:
                 if self.newDir:
                     await clean_target(self.newDir)
@@ -496,22 +497,22 @@ class MirrorLeechListener:
                                 buttons.ubutton("🌐 View Link", share_urls)
                 buttons = extra_btns(buttons)
                 if self.dmMessage:
-                    await sendMessage(self.dmMessage, lmsg + msg + _msg, buttons.build_menu(2), photo='IMAGES')
+                    await sendMessage(self.dmMessage, lmsg + msg + _msg, buttons.build_menu(2), photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
                     await sendMessage(self.message, gmsg + msg + msg_, photo='IMAGES')
                 else:
-                    await sendMessage(self.message, lmsg + msg + _msg, buttons.build_menu(2), photo='IMAGES')
+                    await sendMessage(self.message, lmsg + msg + _msg, buttons.build_menu(2), photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
                 if self.logMessage:
                     if link.startswith("https://drive.google.com/") and config_dict['DISABLE_DRIVE_LINK']:
                         buttons.ubutton("♻️ Drive Link", link, 'header')
-                    await sendMessage(self.logMessage, lmsg + msg + _msg, buttons.build_menu(2), photo='IMAGES')
+                    await sendMessage(self.logMessage, lmsg + msg + _msg, buttons.build_menu(2), photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
             else:
                 if self.dmMessage:
-                    await sendMessage(self.message, gmsg + msg + msg_, photo='IMAGES')
-                    await sendMessage(self.dmMessage, lmsg + msg + _msg, photo='IMAGES')
+                    await sendMessage(self.message, gmsg + msg + msg_, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
+                    await sendMessage(self.dmMessage, lmsg + msg + _msg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
                 else:
-                    await sendMessage(self.message, lmsg + msg + _msg + msg_, photo='IMAGES')
+                    await sendMessage(self.message, lmsg + msg + _msg + msg_, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
                 if self.logMessage:
-                    await sendMessage(self.logMessage, lmsg + msg + _msg, photo='IMAGES')
+                    await sendMessage(self.logMessage, lmsg + msg + _msg, photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
             if self.seed and not self.isClone:
                 if self.newDir:
                     await clean_target(self.newDir)
@@ -552,7 +553,7 @@ class MirrorLeechListener:
         msg += f"\n\n┌  Reason  </code>: {escape(str(error))}"
         msg += f"\n├ Elapsed </code>: {get_readable_time(time() - self.extra_details['startTime'])}"
         msg += f"\n└ Action  </code>: {self.extra_details['mode']}"
-        reply_message = await sendMessage(self.message, msg, button)
+        reply_message = await sendMessage(self.message, msg, button, photo='https://graph.org/file/3d4ff65b7058fe6980a65.jpg')
         if self.logMessage:
             await sendMessage(self.logMessage, msg, button)
         if count == 0:
@@ -596,7 +597,7 @@ class MirrorLeechListener:
         msg = f"{self.tag} {escape(str(error))}"
         msg += f"\n┌ Elapsed </code>: {get_readable_time(time() - self.extra_details['startTime'])}"
         msg += f"\n└  Upload  </code>: {self.extra_details['mode']}"
-        reply_message = await sendMessage(self.message, msg)
+        reply_message = await sendMessage(self.message, msg, photo='https://graph.org/file/3d4ff65b7058fe6980a65.jpg')
         if self.logMessage:
             await sendMessage(self.logMessage, msg)
         if count == 0:
