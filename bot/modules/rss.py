@@ -267,8 +267,9 @@ async def rssGet(_, message, pre_event):
                         link = rss_d.entries[item_num]['links'][1]['href']
                     except IndexError:
                         link = rss_d.entries[item_num]['link']
-                    item_info += f"<b>Name: </b><code>{escape(rss_d.entries[item_num]['title'])}</code>\n"
-                    item_info += f"<b>Link: </b><code>{link}</code>\n\n"
+                    item_info += f"<b>🧲 {rss_d.entries[item_num]['title'].replace('>', '').replace('<', '')}</b>\n\n"
+                    item_info += f"<code>{link}</code>\n"
+                    item_info += f"<b>_________________________________</b>\n\n"
                 if len(item_info.encode()) > 4000:
                     with BytesIO(str.encode(item_info)) as ofile:
                         ofile.name = 'rss.txt'
@@ -614,9 +615,9 @@ async def rssMonitor():
                         if not feed_msg.startswith('/'):
                             feed_msg = f"/{feed_msg}"
                     else:
-                        feed_msg = f"<b>File Name: </b><code>{item_title.replace('>', '').replace('<', '')}</code>\n\n"
-                        feed_msg += f"<b>Link: </b><code>{url}</code>"
-                    feed_msg += f"\n<b>Added By: </b><code>{data['tag']}</code>\n<b>User ID: </b><code>{user}</code>"
+                        feed_msg = f"<b>🧲 {rss_d.entries[feed_count]['title'].replace('>', '').replace('<', '')}</b>\n\n"
+                        feed_msg += f"<code>{url}</code>\n"
+                        feed_msg += f"<b>_________________________________________</b>\n"
                     await sendRss(feed_msg)
                     feed_count += 1
                 async with rss_dict_lock:
@@ -646,5 +647,5 @@ def addJob(delay):
 addJob(config_dict['RSS_DELAY'])
 scheduler.start()
 bot.add_handler(MessageHandler(getRssMenu, filters=command(
-    BotCommands.RssCommand) & CustomFilters.authorized))
+    BotCommands.RssCommand) & CustomFilters.owner))
 bot.add_handler(CallbackQueryHandler(rssListener, filters=regex("^rss")))
