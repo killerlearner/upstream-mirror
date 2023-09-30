@@ -19,9 +19,9 @@ from helpers import download_file
 CONFIG_FILE = 'jackett.json'
 CONFIG_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), CONFIG_FILE)
 CONFIG_DATA = {
-    'api_key': 'oshsi1aoa993j83ehbg1au0r76eh83hedlonqbd',  # jackett api
+    'api_key': 'oshsi1aoa993j83ehbg1au0r76eh97hedlonqbd',  # jackett api
     'tracker_first': False,
-    'url': 'https://jackett-sourabhjhaji.cloud.okteto.net'  # jackett url
+    'url': 'https://jackett-0nfw.onrender.com'  # jackett url
 }
 
 
