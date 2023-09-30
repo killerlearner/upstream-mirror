@@ -115,10 +115,10 @@ async def start(_, message):
     elif config_dict['DM_MODE']:
         start_string = 'Bot Started.\n' \
                        'Now I can send your stuff directoly to you.\n' \
-                       'Owner: @imthemetaverse'
+                       'Owner: @killerlearner'
     else:
         start_string = 'Sorry, you cant use me personal....\n' \
-                       'By @imthemetaverse.\n' \
+                       'By @killerlearner.\n' \
                        'Thank You'
     await sendMessage(message, start_string, photo='https://graph.org/file/7613e27748958f858e2e1.jpg')
 
@@ -183,13 +183,7 @@ help_string = f'''
 /{BotCommands.ListCommand} [query]: Search in Google Drive(s).
 /{BotCommands.SearchCommand} [query]: Search for torrents with API.
 
-<b>Bot Settings:</b>
-/{BotCommands.UserSetCommand}: Open User settings.
-/{BotCommands.UsersCommand}: show users settings (Only Owner & Sudo).
-/{BotCommands.BotSetCommand}: Open Bot settings (Only Owner & Sudo).
-
-<b>Authentication:</b>
-/{BotCommands.AuthorizeCommand}: Authorize a chat or a user to use the bot (Only Owner & Sudo).
+<b>Authentication:</b>/{BotCommands.AuthorizeCommand}: Authorize a chat or a user to use the bot (Only Owner & Sudo).
 /{BotCommands.UnAuthorizeCommand}: Unauthorize a chat or a user to use the bot (Only Owner & Sudo).
 /{BotCommands.AddSudoCommand}: Add sudo user (Only Owner).
 /{BotCommands.RmSudoCommand}: Remove sudo users (Only Owner).
