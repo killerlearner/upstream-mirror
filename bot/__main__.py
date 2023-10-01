@@ -38,8 +38,8 @@ from .modules import (anonymous, authorize, bot_settings, cancel_mirror,
 async def stats(_, message):
     if await aiopath.exists('.git'):
         last_commit = (await cmd_exec("git log -1 --date=short --pretty=format:'%cr'", True))[0]
-        version = killerlearner
-        change_log = Fuck Bot
+        version = 'killerlearner'
+        change_log = 'Fuck Bot'
     else:
         last_commit = 'No UPSTREAM_REPO'
         version = 'killerlearner'
