@@ -106,7 +106,7 @@ def bt_selection_buttons(id_, isCanCncl=True):
 
 
 async def get_telegraph_list(telegraph_content):
-    path = [(await telegraph.create_page(title='Z Drive Search', content=content))["path"] for content in telegraph_content]
+    path = [(await telegraph.create_page(title='Drive Search', content=content))["path"] for content in telegraph_content]
     if len(path) > 1:
         await telegraph.edit_telegraph(path, telegraph_content)
     buttons = ButtonMaker()
@@ -221,7 +221,7 @@ def get_readable_message():
         button = buttons.build_menu(3)
     else:
         buttons.ibutton("Stats", str(THREE))
-        buttons.ibutton("♻️", "status ref")
+        buttons.ibutton("Refresh", "status ref")
         buttons.ibutton("Close", "status close")
         button = buttons.build_menu(2)
     msg += "____________________________"
@@ -497,12 +497,10 @@ async def pop_up_stats(client, CallbackQuery):
             num_queueup += 1
         
             
-    msg = f"Toxic Telegram\n\n"
     msg += f"Sent: {sent} | Received: {recv}\n\n"
     msg += f"Download: {num_active} | Upload: {num_upload}\n\n"
     msg += f"Seed: {num_seeding} | Split: {num_split}\n\n"
     msg += f"Zip: {num_zip} | Unzip: {num_unzip}\n\n"
     msg += f"QueueDl: {num_queuedl} | QueueUp: {num_queueup}\n\n"
-    msg += f"Uninstall telegram and save your life."
-
+    
     await CallbackQuery.answer(text=msg, show_alert=True)
