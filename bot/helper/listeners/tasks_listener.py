@@ -397,7 +397,7 @@ class MirrorLeechListener:
         LOGGER.info(f'Done Uploading {name}')
         
         gmsg = f'Hey <b>{self.tag}</b>!\nYour Download finished...'
-        msg = f'\n\n┌ Size </code>: {get_readable_file_size(size)}'
+        msg = f'\n├ Size </code>: {get_readable_file_size(size)}'
         msg += f"\n├ Elapsed </code>: {get_readable_time(time() - self.extra_details['startTime'])}"
         msg += f"\n├ Action </code>: {self.extra_details['mode']}"
         lmsg = f'<b><i>{escape(name)}</i></b>'
@@ -407,9 +407,9 @@ class MirrorLeechListener:
         reply_message = await sendMessage(gmsg, msg,  photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
         buttons = ButtonMaker()
         if self.isLeech:
-            msg += f'\n└ Total Files</code>: {folders}\n'
+            msg += f'\n╰ Total Files</code>: {folders}\n'
             if mime_type != 0:
-                msg += f'<code>├Corrupted Files</code> : {mime_type}\n'
+                msg += f'<code>├ Corrupted Files</code> : {mime_type}\n'
             msg_ = '\n<b><i>Files has been sent in your DM.</i></b>'
             if not self.dmMessage:
                 if not files:
@@ -464,10 +464,10 @@ class MirrorLeechListener:
                 await start_from_queued()
                 return
         else:
-            msg += f'\n┌ Type </code>: {mime_type}'
+            msg += f'\n├ Type </code>: {mime_type}'
             if mime_type == "Folder":
                 msg += f'\n├  Sub Folders </code>: {folders}'
-                msg += f'\n└  Files  </code>: {files}'
+                msg += f'\n╰  Files  </code>: {files}'
             if link or rclonePath and config_dict['RCLONE_SERVE_URL']:
                 buttons = ButtonMaker()
                 if link:
@@ -550,9 +550,9 @@ class MirrorLeechListener:
                 self.sameDir['tasks'].remove(self.uid)
                 self.sameDir['total'] -= 1
         msg = f"» CC {self.tag}!\nYour download has been stopped."
-        msg += f"\n\n┌  Reason  </code>: {escape(str(error))}"
+        msg += f"\n\n╭  Reason  </code>: {escape(str(error))}"
         msg += f"\n├ Elapsed </code>: {get_readable_time(time() - self.extra_details['startTime'])}"
-        msg += f"\n└ Action  </code>: {self.extra_details['mode']}"
+        msg += f"\n╰ Action  </code>: {self.extra_details['mode']}"
         reply_message = await sendMessage(self.message, msg, button, photo='https://graph.org/file/3d4ff65b7058fe6980a65.jpg')
         if self.logMessage:
             await sendMessage(self.logMessage, msg, button)
@@ -595,8 +595,8 @@ class MirrorLeechListener:
             if self.uid in self.sameDir:
                 self.sameDir.remove(self.uid)
         msg = f"{self.tag} {escape(str(error))}"
-        msg += f"\n┌ Elapsed </code>: {get_readable_time(time() - self.extra_details['startTime'])}"
-        msg += f"\n└  Upload  </code>: {self.extra_details['mode']}"
+        msg += f"\n╭ Elapsed </code>: {get_readable_time(time() - self.extra_details['startTime'])}"
+        msg += f"\n╰  Upload  </code>: {self.extra_details['mode']}"
         reply_message = await sendMessage(self.message, msg, photo='https://graph.org/file/3d4ff65b7058fe6980a65.jpg')
         if self.logMessage:
             await sendMessage(self.logMessage, msg)
