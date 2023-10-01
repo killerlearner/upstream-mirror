@@ -394,13 +394,7 @@ Check all yt-dlp api options from this <a href='https://github.com/yt-dlp/yt-dlp
         rmsg = f'''
 Send Leech Prefix. Timeout: 60 sec
 Examples:
-1. <code>{escape('<b>meta_verse</b>')}</code> 
-This will give output of:
-<b>meta_verser</b>  <code>69MB.bin</code>.
-
-2. <code>{escape('<code>meta_verse</code>')}</code> 
-This will give output of:
-<code>meta_verse</code> <code>69MB.bin</code>.
+1. This will give output of: <code>69MB.bin</code>
 
 Check all available formatting options <a href="https://core.telegram.org/bots/api#formatting-options">HERE</a>.
         '''
