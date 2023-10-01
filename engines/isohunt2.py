@@ -95,7 +95,7 @@ class isohunt2(object):
         if category is not None:
             params.append(('cat', ','.join(category)))
         params = urlencode(params)
-        jacket_url = self.url + "/api/v2.0/indexers/isohunt2/results/torznab/api?%s" % params
+        jacket_url = self.url + "/api/v2.0/indexers/limetorrentsclone/results/torznab/api?%s" % params
         response = self.get_response(jacket_url)
         if response is None:
             self.handle_error("connection error", what)
