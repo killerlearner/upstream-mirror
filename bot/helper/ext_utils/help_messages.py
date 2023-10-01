@@ -73,9 +73,7 @@ Check all yt-dlp api options from this <a href='https://github.com/yt-dlp/yt-dlp
 10.<code>-up</code> to upload to your drive.
 11.<code>-rcf</code> to add rclone flags.
 
-<b>⌯ Powered By @imthemetaverse</b>
 """
-
 MIRROR_HELP_MESSAGE = """
 <b><u>Mirror</u></b>:
 <code>/{cmd}</code> link
@@ -160,9 +158,7 @@ Some links need user access so sure you must add USER_SESSION_STRING for it.
 1. Commands that start with <b>qb</b> are ONLY for torrents.
 2. Read all arguments <a href='https://graph.org/Meta-Bot-Arguments-09-11'>HERE</a>.
 
-<b>⌯ Powered By @imthemetaverse</b>
 """
-
 RSS_HELP_MESSAGE = """
 <b><u>Use this format to add feed url</u></b>:
 Title1 link (required)
@@ -185,9 +181,7 @@ This filter will parse links that it's titles contains `(1080 or 720 or 144p) an
 4. Take look on title if it has static special character after or before the qualities or extensions or whatever and use them in filter to avoid wrong match.
 Timeout: 60 sec.
 
-<b>⌯ Powered By @imthemetaverse</b>
 """
-
 CLONE_HELP_MESSAGE = """
 Send Gdrive|Gdot|Filepress|Filebee|Appdrive|Gdflix link or rclone path along with command or by replying to the link/rc_path by command.
 
@@ -206,9 +200,7 @@ drive_id must be folder id and index must be url else it will not accept
 
 <b><u>Note</u></b>: If -up not specified then rclone destination will be the RCLONE_PATH from config.env
 
-<b>⌯ Powered By @imthemetaverse</b>
 """
-
 CAT_SEL_HELP_MESSAGE = """
 
 Reply to an active /{cmd} which was used to start the download or add gid along with {cmd}
@@ -219,14 +211,11 @@ But you can always use /{mir} with to select category before download start.
 <code>/{cmd}</code> -id <code>drive_folder_link</code> or <code>drive_id</code> -index <code>https://anything.in/0:</code> gid or by replying to active download
 drive_id must be folder id and index must be url else it will not accept.
 
-<b>⌯ Powered By @imthemetaverse</b>
 """
-
 TOR_SEL_HELP_MESSAGE = """
 
 Reply to an active <code>/{cmd}</code> which was used to start the qb-download or add gid along with cmd\n\n
 This command mainly for selection incase you decided to select files from already added torrent.
 But you can always use <code>/{mir}</code> with arg `-s` to select files before download start.
 
-<b>⌯ Powered By @imthemetaverse</b>
 """
