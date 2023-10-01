@@ -95,7 +95,7 @@ class x1337(object):
         if category is not None:
             params.append(('cat', ','.join(category)))
         params = urlencode(params)
-        jacket_url = self.url + "/api/v2.0/indexers/1337x/results/torznab/api?%s" % params
+        jacket_url = self.url + "/api/v2.0/indexers/torrentgalaxy/results/torznab/api?%s" % params
         response = self.get_response(jacket_url)
         if response is None:
             self.handle_error("connection error", what)
