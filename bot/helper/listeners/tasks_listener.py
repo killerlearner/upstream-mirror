@@ -492,9 +492,6 @@ class MirrorLeechListener:
                             buttons.ubutton("📁 Direct Link", share_url)
                         else:
                             buttons.ubutton("🔗 Direct Link", share_url)
-                            if mime_type.startswith(('image', 'video', 'audio')):
-                                share_urls = f'{INDEX_URL}/{url_path}?a=view'
-                                buttons.ubutton("🌐 View Link", share_urls)
                 buttons = extra_btns(buttons)
                 if self.dmMessage:
                     await sendMessage(self.dmMessage, lmsg + msg + _msg, buttons.build_menu(2), photo='https://graph.org/file/bb0c305a3c575f7529bbf.jpg')
