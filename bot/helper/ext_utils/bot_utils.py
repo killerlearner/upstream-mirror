@@ -144,8 +144,8 @@ def get_readable_message():
 
         elapsed = time() - download.extra_details['startTime']
 
-        msg += f"\n<b>File Name</b> <i>{escape(f'{download.name()}')}</i>\n\n" if elapsed <= config_dict['AUTO_DELETE_MESSAGE_DURATION'] else ""
-        msg += f"┌ <b>{download.status()}</b>"
+        msg += f"\n<b>╭ File Name</b> <i>{escape(f'{download.name()}')}</i>\n\n" if elapsed <= config_dict['AUTO_DELETE_MESSAGE_DURATION'] else ""
+        msg += f"╭ <b>{download.status()}</b>"
 
         if download.status() not in [MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_PAUSED, MirrorStatus.STATUS_QUEUEDL,
                                      MirrorStatus.STATUS_QUEUEUP, MirrorStatus.STATUS_LOCAL]:
@@ -169,8 +169,7 @@ def get_readable_message():
 
             if hasattr(download, 'seeders_num'):
                 try:
-                    msg += f"\n├ Seeders: {download.seeders_num()}"
-                    msg += f"\n├ Leechers: {download.leechers_num()}"            
+                    msg += f"\n├ Seeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"            
                 except:
                     pass
 
@@ -189,7 +188,7 @@ def get_readable_message():
             msg += f"\n├ <code>Task     </code>» <a href='{download.message.link}'>{download.extra_details['mode']}</a>"
             
         msg += f"\n├ By </code>: {tag}"
-        msg += f"\n└  /{BotCommands.CancelMirror}_{download.gid()}\n\n"
+        msg += f"\n╰   /{BotCommands.CancelMirror}_{download.gid()}\n\n"
        
     if len(msg) == 0:
         return None, None
@@ -497,7 +496,7 @@ async def pop_up_stats(client, CallbackQuery):
             num_queueup += 1
         
             
-    msg += f"Sent: {sent} | Received: {recv}\n\n"
+    msg = f"Sent: {sent} | Received: {recv}\n\n"
     msg += f"Download: {num_active} | Upload: {num_upload}\n\n"
     msg += f"Seed: {num_seeding} | Split: {num_split}\n\n"
     msg += f"Zip: {num_zip} | Unzip: {num_unzip}\n\n"
