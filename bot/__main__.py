@@ -42,7 +42,7 @@ async def stats(_, message):
         change_log = (await cmd_exec("git log -1 --pretty=format:'%s'", True))[0]
     else:
         last_commit = 'No UPSTREAM_REPO'
-        version = 'N/A'
+        version = 'killerlearner'
         change_log = 'N/A'
 
     sysTime = get_readable_time(time() - boot_time())
