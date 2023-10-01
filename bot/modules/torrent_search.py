@@ -139,7 +139,7 @@ async def __getResult(search_results, key, message, method):
     elif method == 'apitrend':
         msg = "<h4>API Trending Results</h4>"
     else:
-        msg = f"<h4>PLUGINS Search Result(s) For {key}</h4>"
+        msg = f"<h4>Torrent Search Result(s) For {key}</h4>"
     for index, result in enumerate(search_results, start=1):
         if method.startswith('api'):
             try:
@@ -218,7 +218,6 @@ async def __plugin_buttons(user_id):
     for siteName in PLUGINS:
         buttons.ibutton(siteName.capitalize(),
                         f"torser {user_id} {siteName} plugin")
-    buttons.ibutton('All', f"torser {user_id} all plugin")
     buttons.ibutton("Cancel", f"torser {user_id} cancel")
     return buttons.build_menu(2)
 
